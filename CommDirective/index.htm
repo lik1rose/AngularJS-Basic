@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="ShitApp">
+  <head>
+    <title>Introduction to AngularJS</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8" />
+
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <style>
+      html,
+      body {
+        font-size: 1.1em;
+      }
+    </style>
+
+    <!-- load angular via CDN -->
+    <script src="angular.js"></script>
+    <script src="angular-messages.js"></script>
+    <script src="angular-resource.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">AngularJS</a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#"><i class="fa fa-home"></i> Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div ng-controller="mainController">
+        <div>
+          <label for="">What is your xxxxx fuked?</label>
+          <input type="text" ng-model="handle" />
+        </div>
+
+        <div
+          class="alert"
+          ng-class="{'alert-warning': handle.length < characters, 'alert-danger': handle.length > characters}"
+          ng-hide="handle.length === characters"
+        >
+          <div ng-show="handle.length < characters">Less than 5</div>
+          <div ng-show="handle.length > characters">Too many characters!</div>
+        </div>
+
+        <hr />
+
+        <h1>xxxxx.com/{{lowercasehandle()}}</h1>
+
+        <h3>Rules</h3>
+        <ul>
+          <li ng-repeat="shit in rules">{{shit.rulename}}</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
